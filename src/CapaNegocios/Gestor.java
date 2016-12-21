@@ -118,8 +118,14 @@ public class Gestor {
 		return msm;
 	}
         
-        public String[] obtenerDatosExpediente(String pid) throws Exception{
-            return (new MultiExpediente()).buscar(pid).obtenerInformacion();
+        public String[] obtenerDatosExpediente(String pid)throws Exception{
+            MultiExpediente unMulti = new MultiExpediente();
+            Expediente unExpediente = unMulti.buscar(pid);
+            if(unExpediente == null){
+                return null;
+            }else{
+                return unMulti.buscar(pid).obtenerInformacion();
+            }
         }
         
 	/**

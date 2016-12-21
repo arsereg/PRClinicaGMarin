@@ -5,6 +5,7 @@
  */
 package CapaPresentacion;
 
+import CapaNegocios.Gestor;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -16,11 +17,13 @@ import javax.swing.JOptionPane;
 public class VentanaAdministracionDoctor extends javax.swing.JFrame {
 
     private String idDoc;
+    Gestor gestor;
     /**
      * Creates new form VentanaAdministracionDoctor
      */
     public VentanaAdministracionDoctor(String pidDoc) {
         initComponents();
+        gestor = new Gestor();
         setLocationRelativeTo(null);
         this.setIdDoc(pidDoc);
     }
@@ -67,6 +70,11 @@ public class VentanaAdministracionDoctor extends javax.swing.JFrame {
         });
 
         jButton4.setText("Buscar Expediente");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Salir");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -137,6 +145,21 @@ public class VentanaAdministracionDoctor extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        try {
+            String ident =  JOptionPane.showInputDialog("Digite el numero de cedula, o numero de expediente");
+            String[] datos = gestor.obtenerDatosExpediente(ident);
+            if(datos == null){
+                JOptionPane.showMessageDialog(null, "No se han encontrado resultados");
+            }else{
+                VentanaDatosExpediente vent = new VentanaDatosExpediente(ident, idDoc);
+                vent.setVisible(true);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(VentanaAdministracionDoctor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

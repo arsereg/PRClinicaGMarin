@@ -12,7 +12,7 @@ import java.time.LocalDate;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Constructor del MultiExpediente
  * @author arser
  */
 public class MultiExpediente {
@@ -32,7 +32,6 @@ public class MultiExpediente {
                         rs.getString("idExp")
                 );
         }else{
-            JOptionPane.showMessageDialog(null, pid);
             sql = "SELECT * FROM TExpediente where cedPaciente = '"+pid+"';";
             rs = Conector.getConector().ejecutarSQL(sql, true);
             if(rs.next()){
@@ -50,11 +49,26 @@ public class MultiExpediente {
         return resul;
     }
     
+    /**
+     * Borra un expediente
+     * @param pid id del expediente
+     * @throws Exception Lanza un error general
+     */
     public void borrar(String pid) throws Exception{
         String sql = "Delete from texpediente where cedPaciente = '"+pid+"'";
         Conector.getConector().ejecutarSQL(sql);
     }
     
+    /**
+     * Ingresa en la base de datos un registro
+     * @param pcedula Cedula del paciente
+     * @param pnombre Nombre del paciente
+     * @param pdir Direccion del paciente
+     * @param ptel Numero de telefono del paciente
+     * @param pnacimiento Fecha de nacimiento del paciente
+     * @return resul Un expediente creado
+     * @throws Exception Lanza un error general
+     */
     public Expediente crear(String pcedula, String pnombre, String pdir, String ptel, LocalDate pnacimiento) throws Exception{
         if(sePuedeCrear(pcedula)){
             Expediente.setCantExpedientes(contarExpedientes());
@@ -70,6 +84,11 @@ public class MultiExpediente {
         }
     }
     
+    /**
+     * Cuenta los expedientes creados
+     * @return
+     * @throws Exception Lanza un error general
+     */
     public int contarExpedientes() throws Exception{
         String sql = "Select count(1) from texpediente;";
         ResultSet rs = Conector.getConector().ejecutarSQL(sql, true);
@@ -77,6 +96,13 @@ public class MultiExpediente {
         return rs.getInt(1);
     }
     
+    /**
+     * Indica si se puede crear un expediente con ese numero de cedula.
+     * Devuelve true si se puede crear y false si ya está en el sistema.
+     * @param pid
+     * @return
+     * @throws Exception 
+     */
     public boolean sePuedeCrear(String pid) throws Exception{
         boolean resul = false;
         String sql = "Select count(1) from texpediente where cedPaciente = '"+pid+"';";
@@ -89,6 +115,11 @@ public class MultiExpediente {
         return resul;
     }
     
+    /**
+     * Los datos de los expedientes.
+     * @return
+     * @throws Exception se lanza un error general
+     */
     public String[][] obtenerListaExpedientes() throws Exception{
         String sql = "select idexp, nombre from texpediente;";
         ResultSet rs = Conector.getConector().ejecutarSQL(sql, true);
