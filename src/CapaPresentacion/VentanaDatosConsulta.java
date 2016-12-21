@@ -18,8 +18,11 @@ import javax.swing.JOptionPane;
 public class VentanaDatosConsulta extends javax.swing.JFrame {
     private Gestor gestor;
     private String idConsulta;
+    
     /**
-     * Creates new form VentanaDatosConsulta
+     * 
+     * @param pid IDConsulta
+     * @throws Exception se lanza un error general
      */
     public VentanaDatosConsulta(String pid) throws Exception {
         this.setGestor(new Gestor());

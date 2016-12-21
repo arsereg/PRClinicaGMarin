@@ -93,14 +93,17 @@ public class Gestor {
 		}
 		return msm;
 	}
-	/**
-	 * @param pced to set Cedula de un Paciente
-	 * @param pnombrePac to set Nombre de un Paciente
-	 * @param pdir to set Direccion de un Paciente
-	 * @param pnac to set Fecha de Naciemiento de un Paciente
-	 * @param pidDoctor to set Identificador unico de un Doctor
-	 * @return msm Mensaje de un Expediente Registrado
-	 */
+	
+        /**
+         * 
+         * @param pced Numero de cedula
+         * @param pnombrePac Nombre
+         * @param pdir Direccion
+         * @param pnac Fecha de nacimiento
+         * @param pidDoctor id del doctor
+         * @param ptel Telefono
+         * @return miDoctor
+         */
 	public String registrarExpediente(String pced,String pnombrePac, String pdir, LocalDate pnac,String pidDoctor, String ptel){
 		Doctor miDoctor=null;
 		Expediente miExpediente = null;
@@ -129,11 +132,13 @@ public class Gestor {
         }
         
 	/**
-	 * @param pidExp to set Identificador unico de un Expediente
-	 * @param pdesc to set descripcion de una COnsulta
-	 * @param pidDoctor to set Identificador unidco de un Doctor
-	 * @return msm Mensaje de una COsulta Registrada
-	 */
+         * 
+         * @param pidDoctor ID del doctor
+         * @param pidExp ID del expediente
+         * @param pdesc Descripcion de la consulta
+         * @param medicinas Medicinas recetadas
+         * @return msm
+         */
 	public String registrarConsultas(String pidDoctor,String pidExp, String pdesc, ArrayList<String> medicinas){
             Doctor miDoctor=null;
 		Consulta miConsulta = null;

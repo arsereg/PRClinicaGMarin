@@ -51,13 +51,14 @@ public class Expediente {
         this.setNacimiento(pnacimiento);
         this.setConsultas(null);
     }
+    
     /**
-     * Constructor del paciente que se utiliza cuando se va a generar desde cero
-     * @param pcedula
-     * @param pnombre
-     * @param pdir
-     * @param ptel
-     * @param pnacimiento 
+     * 
+     * @param pcedula Cedula del paciente
+     * @param pnombre Nombre del paciente
+     * @param pdir Direccion del paciente
+     * @param ptel Telefono del paciente
+     * @param pnacimiento Fecha de nacimiento del paciente
      */
     public Expediente(String pcedula, String pnombre, String pdir, String ptel, LocalDate pnacimiento){
         this(pcedula, pnombre, pdir, ptel, pnacimiento, generarId());
@@ -173,7 +174,9 @@ public class Expediente {
     }
 
     /**
-     * @return the consultas Levanta las consultas cuando se necesitan.
+     * Se obtienen las consultas por demanda
+     * @return consultas
+     * @throws Exception Se lanza una excepcion general
      */
     public ArrayList<Consulta> getConsultas() throws Exception {
         if(consultas == null){
@@ -205,23 +208,23 @@ public class Expediente {
      * @param pidDoc Identificacion del doctor
      * @param pdesc Descripcion de la consulta
      * @param pid Identificacion del expediente
-     * @throws Exception 
+     * @throws Exception Se lanza una excepcion general
      */
     public void registrarConsulta(String pidDoc, String pdesc, String pid) throws Exception{
         (new MultiConsulta()).crear(pidDoc, pdesc, pid);
     }
     
     /**
-     * Genera un ID para el expediente
-     * @return 
+     * 
+     * @return el ID generado 
      */
     public static String generarId(){
         return getPrefijoExp() + ++cantExpedientes;
     }
     
     /**
-     * Devuelve la informacion del expediente
-     * @return 
+     * 
+     * @return resul resultado de la informacion
      */
     public String[] obtenerInformacion(){
         String[] resul = new String[7];

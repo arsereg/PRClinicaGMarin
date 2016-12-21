@@ -16,8 +16,11 @@ public class VentanaDatosDoc extends javax.swing.JFrame {
 
     private String idDoctor;
     private Gestor gestor;
+    
     /**
-     * Creates new form VentanaDatosDoc
+     * 
+     * @param pid ID de Doctor
+     * @throws Exception se lanza un error general
      */
     public VentanaDatosDoc(String pid) throws Exception {
         initComponents();

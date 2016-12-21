@@ -26,12 +26,6 @@ public class AccesoBD{
 	 *al repositorio utilizado
 	 *@param conexion cadena de conexión con la
 	 *base de datos
-	 *@param usuario nombre del usuario de la base 
-	 *de datos, si no se utiliza, se debe enviar
-	 *un string vacío
-	 *@param clave palabra clave del usuario
-	 *para realizar su autenticación en la base
-	 *de datos
 	 */
 //	public AccesoBD(String driver, String conexion,	String usuario, String clave) throws SQLException,Exception{
 //		Class.forName(driver);
@@ -39,6 +33,13 @@ public class AccesoBD{
 //		st = conn.createStatement();
 //	}
 	
+        /**
+         * 
+         * @param driver Driver de conexion
+         * @param conexion Conexion
+         * @throws SQLException Se lanza un error SQL
+         * @throws Exception Se lanza un error general
+         */
 	public AccesoBD(String driver,String conexion) throws SQLException,Exception{
 		Class.forName(driver);
 		conn = DriverManager.getConnection(conexion);
@@ -51,11 +52,11 @@ public class AccesoBD{
 	 *es decir un insert, delete o update
 	 *@param sentencia cadena sql que será
 	 *ejecutada en la base de datos
-	 *
+	 *@throws SQLException Se lanza un error SQL
+         *@throws Exception Se lanza un error general;
 	 */
 	
-	public void ejecutarSQL(String sentencia) 
-	throws SQLException,Exception{	
+	public void ejecutarSQL(String sentencia) throws SQLException,Exception{	
 		st.execute(sentencia);		
 	}
 	
@@ -67,6 +68,9 @@ public class AccesoBD{
 	 *ejecutada en la base de datos
 	 *@param retorno booleana que indica que se
 	 *desea un resultado de la consulta
+         *@return rs
+         *@throws SQLException Lanza un error SQL
+         * @throws Exception Lanza un error general
 	 */	
 	public ResultSet ejecutarSQL(String sentencia,
 	boolean retorno)
@@ -81,7 +85,7 @@ public class AccesoBD{
 	 *desde afuera.  A partir de este momento 
 	 *todas las sentencias esperarán la orden para
 	 *ser aceptadas en la base de datos
-	 *
+	 *@throws SQLException Lanza un error SQL
 	 */
 	public void iniciarTransaccion()
 	throws java.sql.SQLException{
@@ -93,7 +97,7 @@ public class AccesoBD{
 	 *desde afuera.  A partir de este momento 
 	 *todas las sentencias se ejecturán de forma
 	 *individual en la base de datos
-	 *
+	 *@throws SQLException Lanza un error SQL
 	 */
 	
 	public void terminarTransaccion()
@@ -102,21 +106,18 @@ public class AccesoBD{
 	}
 	
 	/**
-	 *Indica que la transacción ha sido aceptada
-	 *
-	 */	
-	
+         * 
+         * @throws java.sql.SQLException Lanza un error SQL
+         */	
 	public void aceptarTransaccion()
 	throws java.sql.SQLException{
 		conn.commit();
 	}
 	
 	/**
-	 *Indica que la transacción debe ser
-	 *deshecha porque no se realizó de
-	 *forma exitosa
-	 *
-	 */	
+         * Deshace una transaccion
+         * @throws java.sql.SQLException Se lanza un error SQL
+         */
 	
 	public void deshacerTransaccion()
 	throws java.sql.SQLException{

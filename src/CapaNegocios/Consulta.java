@@ -46,15 +46,13 @@ public class Consulta {
  
     }
     
+   
     /**
-     * Constructor con los datos de una consulta con el id enviado
-     *
-     * @param pidConsulta to set Id de la consulta
-     * @param pidDoc to set Id del Doctor
-     * @param pdesc to set Descripcion de la consulta
-     * @param pidExp to set el Id del expediente
+     * Constructor
+     * @param pidDoc ID del Doctor
+     * @param pdesc descripcion de la consulta
+     * @param pidExp ID del expediente
      */
-
     public Consulta(String pidDoc, String pdesc, String pidExp) {
         this(generarId(), pidDoc, pdesc, pidExp, LocalDate.now());
     }
@@ -153,8 +151,8 @@ public class Consulta {
     
     /**
      * @return medicinas la lista de medicinas de una consulta
-     * @throws Exception 
-     * @throws SQLException 
+     * @throws Exception Excepcion general
+     * @throws SQLException Excepcion General
      */
 
     public ArrayList<String> getListaMedicinas() throws SQLException, Exception{
@@ -162,10 +160,11 @@ public class Consulta {
 		return listaMedicinas;
     }
     
+    
     /**
-     * @param pmedicinas the pid to set las medicinas recetadas de una consulta
+     * 
+     * @param plistaMedicinas Lista de las medicinas
      */
-
     public void setListaMedicinas(ArrayList<String> plistaMedicinas) {
         this.listaMedicinas = plistaMedicinas;
     }
@@ -189,8 +188,8 @@ public class Consulta {
     /**
      * Método que permite agregar las medicinas recetadas a la lista de medicinas
      * @param pmedicina the pid to set la medicina enviada a la lista
-     * @throws Exception 
-     * @throws SQLException 
+     * @throws Exception Se lanza un error general
+     * @throws SQLException Se lanza un error de SQL
      */
 
     public void agregarMedicina(String pmedicina) throws SQLException, Exception {
@@ -207,8 +206,8 @@ public class Consulta {
     /**
      * Método que permite obtener la información de una sola consulta
      * @return informacionDeUnaConsulta la información de una consulta
-     * @throws Exception 
-     * @throws SQLException 
+     * @throws Exception Se lanza una excepcion general
+     * @throws SQLException Se lanza un error SQL
      */
 
     public String[] obtenerInformacionDeUnaConsulta() throws SQLException, Exception {

@@ -18,8 +18,10 @@ public class VentanaAdministracionDoctor extends javax.swing.JFrame {
 
     private String idDoc;
     Gestor gestor;
+    
     /**
-     * Creates new form VentanaAdministracionDoctor
+     * 
+     * @param pidDoc ID del doctor
      */
     public VentanaAdministracionDoctor(String pidDoc) {
         initComponents();

@@ -23,8 +23,10 @@ import org.jdesktop.swingx.JXTable;
 public class VentanaListaExpedientes extends javax.swing.JFrame {
     private Gestor gestor;
     private String idDoc;
+    
     /**
-     * Creates new form VentanaListaExpedientes
+     * 
+     * @param pidDoctor ID del doctor
      */
     public VentanaListaExpedientes(String pidDoctor){
         gestor = new Gestor();

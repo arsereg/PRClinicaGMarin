@@ -22,17 +22,14 @@ import javax.swing.JOptionPane;
  */
 public class MultiConsulta {
     
+   
     /**
-     * Método que crea una consulta
-     * @param pidConsulta the pidConsulta to set Id de la consulta
-     * @param pidDoc the pidDoc to set Id del doctor
-     * @param pdesc the pdesc to set Descripción de la consulta
-     * @param pidExp the pidExp to set Expediente de la consulta
-     * @return unaConsulta Consulta creada
-     * @throws java.sql.SQLException Se lanza un error de SQL
-     * @throws java.lang.Exception Se lanza un error general
+     * 
+     * @param pidDoc Id del doctor
+     * @param pdesc Descripcion de la consulta
+     * @param pidExp Id del expediente
+     * @return Una consulta
      */
-
     public Consulta crear(String pidDoc, String pdesc, String pidExp) {
         Consulta.setCantConsultas(contarCantConsultas());
         Consulta unaConsulta = new Consulta(pidDoc, pdesc, pidExp);
@@ -51,12 +48,11 @@ String fechaFormateada = "#"+fecha.getMonthValue()+"/"+fecha.getDayOfMonth()+"/"
         return unaConsulta;
     }
     
-    /**
-     *
-     * @return size Cantidad de consultas creadas
-     * @throws java.lang.Exception Se lanza un error general
-     */
-
+    
+/**
+ * 
+ * @return size
+ */
     public int contarCantConsultas() {
         int size = 0;
         try {
@@ -135,11 +131,11 @@ String fechaFormateada = "#"+fecha.getMonthValue()+"/"+fecha.getDayOfMonth()+"/"
     }
     
     /**
-     * @param pidConsultas the pidConsultas to set ID de la consulta buscada
-     *
-     * @return unaConsulta consulta buscada
-     * @throws java.sql.SQLException Se lanza un error SQL
-     * @throws java.lang.Exception Se lanza un error general
+     * 
+     * @param pidConsulta ID de la consulta
+     * @return unaConsulta
+     * @throws java.sql.SQLException Se lanza un error de SQL
+     * @throws Exception  Se lanza un error general
      */
 
     public Consulta buscarConsulta(String pidConsulta) throws java.sql.SQLException, Exception {

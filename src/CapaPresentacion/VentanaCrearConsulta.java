@@ -24,8 +24,11 @@ public class VentanaCrearConsulta extends javax.swing.JFrame {
     Gestor gestor = new Gestor();
     private String idDoctor;
     private String idExp;
+    
     /**
-     * Creates new form VentanaCrearConsulta
+     * 
+     * @param pidDoctor ID del doctor
+     * @param pidExp  ID del expediente
      */
     public VentanaCrearConsulta(String pidDoctor, String pidExp) {
         initComponents();

@@ -22,8 +22,12 @@ public class VentanaDatosExpediente extends javax.swing.JFrame  {
     Gestor gestor;
     private String idExpediente;
     private String idDoctor;
+    
     /**
-     * Creates new form VentanaDatosExpediente
+     * 
+     * @param pid ID del expediente
+     * @param pidDoc ID del doctor
+     * @throws Exception se lanza un error general
      */
     public VentanaDatosExpediente(String pid, String pidDoc) throws Exception {
         gestor = new Gestor();

@@ -86,7 +86,7 @@ public class MultiExpediente {
     
     /**
      * Cuenta los expedientes creados
-     * @return
+     * @return La cantidad de expedientes
      * @throws Exception Lanza un error general
      */
     public int contarExpedientes() throws Exception{
@@ -99,9 +99,9 @@ public class MultiExpediente {
     /**
      * Indica si se puede crear un expediente con ese numero de cedula.
      * Devuelve true si se puede crear y false si ya está en el sistema.
-     * @param pid
-     * @return
-     * @throws Exception 
+     * @param pid ID De expediente
+     * @return resul
+     * @throws Exception Se lanza un error general
      */
     public boolean sePuedeCrear(String pid) throws Exception{
         boolean resul = false;
@@ -117,7 +117,7 @@ public class MultiExpediente {
     
     /**
      * Los datos de los expedientes.
-     * @return
+     * @return Lista de expedientes
      * @throws Exception se lanza un error general
      */
     public String[][] obtenerListaExpedientes() throws Exception{

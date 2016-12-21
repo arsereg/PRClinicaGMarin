@@ -32,7 +32,12 @@ public class Conector{
 //		return conectorBD;
 //	}
 //	
-	
+	/**
+         * Accesor a la DB
+         * @return conectorBD
+         * @throws java.sql.SQLException Se lanza un error de SQL
+         * @throws Exception Se lanza un error general
+         */
 	public static AccesoBD getConector() throws java.sql.SQLException,Exception{
 		if(conectorBD==null){
 			conectorBD = new AccesoBD("net.ucanaccess.jdbc.UcanaccessDriver","jdbc:ucanaccess://C:/Users/arser/Desktop/proy3progra2/BDClinica.accdb");

@@ -21,8 +21,10 @@ public class VentanaCrearExpediente extends javax.swing.JFrame {
     
     private String idDoc;
     Gestor gestor;
+    
     /**
-     * Creates new form VentanaCrearExpediente
+     * 
+     * @param pidDoc ID del doctor
      */
     public VentanaCrearExpediente(String pidDoc) {
         initComponents();

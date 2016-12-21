@@ -13,8 +13,11 @@ import CapaNegocios.Gestor;
  */
 public class DatosExpediente extends javax.swing.JFrame {
     private Gestor gestor;
+    
     /**
-     * Creates new form DatosExpediente
+     * 
+     * @param pid id de un expediente
+     * @throws Exception Lanza una excepcion general
      */
     public DatosExpediente(String pid) throws Exception {
         initComponents();

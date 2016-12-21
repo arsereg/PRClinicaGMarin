@@ -88,15 +88,18 @@ public class Doctor {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	/**
-	 * @param pced to set Cedula de un Paciente
-	 * @param pnombrePac to set Nombre de un Paciente
-	 * @param pdir to set Direccion de un Paceinte
-	 * @param pnac to set FechaNacimiento de un Paciente
-	 * @return unExpediente un Expediente
-	 * @throws SQLException
-	 * @throws Exception se lanza cuando hay un error general.
-	 */
+	
+        /**
+         * 
+         * @param pced Nummero de cedula
+         * @param pnombrePac Nombre del paciente
+         * @param pdir Direccion del paciente
+         * @param ptel Telefono del paciente
+         * @param pnac Fecha de nacimiento
+         * @return miExpediente
+         * @throws SQLException Se lanza un error SQL
+         * @throws Exception Se lanza un error general
+         */
 	public Expediente abrirExpediente(String pced,String pnombrePac, String pdir, String ptel, LocalDate pnac)throws SQLException, Exception{
 		Expediente miExpediente = null;
 		
@@ -104,13 +107,14 @@ public class Doctor {
 		
 	return miExpediente;
 	}
-	/**
-	 * @param pidExp to set Identificador unico de un expediente
-	 * @param pdesc to set Descripcion de una Consulta
-	 * @return miConsulta una Consulta
-	 * @throws SQLException Se lanza un error de SQL
-	 * @throws Exception se lanza cuando hay un error general.
-	 */
+	
+        /**
+         * 
+         * @param pidDoctor ID del doctor
+         * @param pidExp ID Del expediente
+         * @param pdesc Descripcion del expediente
+         * @return miConsulta
+         */
 	public Consulta atenderConsulta(String pidDoctor,String pidExp,String pdesc){
 		Consulta miConsulta = null;
 		miConsulta =((new MultiConsulta()).crear(pidDoctor,pidExp,pdesc));
